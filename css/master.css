@@ -507,11 +507,36 @@ overflow: hidden;
 .button:hover{
   box-shadow: 0 8px 32px hsla(243, 100%, 54%, .4);
 }
+.button2{
+  display: inline-flex;
+  justify-content: center;
+  background: var(--first-gradient);
+  color: var(--white-color);
+  font-weight: var(--font-semi-bold);
+  padding: 1rem 1rem ;
+  transition: box-shadow .4s;
+  border-radius: 5rem;
+}
+.button2:hover{
+  box-shadow: 0 8px 32px hsla(243, 100%, 54%, .4);
+}
 .button__yellow{
   background: var(--third-gradient);
 }
 .button__yellow:hover{
   box-shadow: 0 8px 32px hsla(25, 96%, 55%, .4);
+}
+.button__ghost{
+  background-color: transparent;
+  box-shadow: none;
+  border: 3px solid var(--first-color);
+  color: hsl(45, 100%, 52%);
+}
+.servicr__buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
 }
 /*=============== TRAVEL ===============*/
 .travel{
@@ -741,7 +766,7 @@ overflow: hidden;
   display: block;
   width: 8px;
   height: 8px;
-  background-color: #7e4a17;
+  background:var(--first-gradient);
   border-radius: 50%;
   transform: translate(0);
 }
@@ -999,6 +1024,125 @@ hr {
 .testimonial__stars{
   color: var(--first-color);
 }
+
+
+
+
+
+/* servpay */
+.serv__cintainer{
+  row-gap: 2rem;
+}
+.serv__card{
+  /* background-color: #00000075; */
+  padding: 1.5rem 1.5rem;
+  box-shadow: 0 2px 8px hsla(19, 64%, 4%, .5);
+  text-align: center;
+  border: 1px solid var(--first-color);
+  transition: background-color .4s;
+  border-radius: 23rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/personal/per8.webp);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.serv__icon{
+  width: 40%;
+  display: inline-block;
+  font-size: 3rem;
+  color: var(--first-color);
+  margin-bottom: 1.5rem;
+}
+.serv__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: 1rem;
+}
+.serv__description{
+  color: #fff;
+  margin-bottom: 3rem;
+}
+.serv__botton{
+  cursor: pointer;
+}
+.services__model{
+  position: fixed;
+  inset: 0;
+  background-color:hsl(186.15deg 100% 50% / 0%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  z-index: var(--z-tooltip);
+  transition: opacity .4s , visibility .4s;
+}
+.services__model-content{
+  max-height: 420px;
+  position: relative;
+  /* background-color: rgb(0, 0, 0); */
+  padding: 3.5rem 1.5rem;
+  border: 6px solid var(--first-color);
+  overflow: auto;
+  border-radius: 14px;
+  background:linear-gradient(rgb(0 0 0 / 83%), rgb(0 0 0 / 86%)), url(../images/personal/per6.webp);
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.services__model-content::-webkit-scrollbar{
+  width: 0.6rem;
+  border-radius: 9rem;
+}
+
+
+.services__model-content::-webkit-scrollbar-thumb{
+  background-color:var(--first-color);
+
+}
+.services__model-title{
+  color: #ffffff;
+  font-size: var(--h2-font-size);
+  margin-bottom:2.5rem ;
+}
+.services__model-list{
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+.services__model-item{
+  text-align: initial;
+  list-style: square;
+}
+.services__model-item::marker{
+  color: var(--first-color);
+}
+.services__model-close{
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  cursor: pointer;
+
+}
+/* Corrected class name for active modal */
+.active-modal {
+  opacity: 1;
+  visibility: visible;
+}
+.article__bg{
+  position: absolute;
+    /* top: 0; */
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+}
+
+
 /*=============== FOOTER ===============*/
 .footer{
   overflow: hidden;
@@ -1365,5 +1509,42 @@ hr {
     font-size: var(--h2-font-size);
   }
 
+}
+
+@media screen and (max-width:320px) {
+  .services__model{
+    padding-inline: .5rem;
+  }
+
+  
+}
+@media screen and (min-width:576px) {
+    .serv__cintainer{
+      grid-template-columns: 320px;
+      justify-content: center;
+    }
+    .services__model-content{
+      width: 400px;
+    }
+}
+@media screen and (min-width:768px) {
+    .serv__cintainer{
+      grid-template-columns: repeat(2, 320px);
+    }
+}
+@media screen and (min-width:1150px) {
+    .serv__cintainer{
+      grid-template-columns:repeat(2, 400px) ;
+    }
+    .serv__card{
+      padding-block: 1.5rem;
+    }
+    .services__model-content{
+      max-height: 480px;
+      padding: 5.5rem 2rem;
+    }
+    .services__model-close{
+      font-size: 2rem;
+    }
 }
 
