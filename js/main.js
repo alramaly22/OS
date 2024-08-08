@@ -21,6 +21,28 @@ centeredSlides: 'auto',
     }
 });
 
+
+const modalViews = document.querySelectorAll('.services__model'),
+      modalBtns  = document.querySelectorAll('.serv__botton'),
+      modalClose = document.querySelectorAll('.services__model-close')
+
+let modal =  function(modalClick){
+  console.log("Opening modal:", modalClick);
+  modalViews[modalClick].classList.add('active-modal')
+}
+modalBtns.forEach((mb,i)=>{
+  mb.addEventListener('click',()=>{
+    modal(i)
+  })
+})
+modalClose.forEach((mc)=>{
+  mc.addEventListener('click',()=>{
+    modalViews.forEach((mv)=>{
+      mv.classList.remove('active-modal')
+    })
+  })
+})
+
 /*=============== SWIPER PLANETS ===============*/ 
 const swiperTravel = new Swiper('.travel__swiper', {
     loop: true,
